@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Welcome to Admin Home Page</h2>
+<div th:text="${msg}"></div>
+<a th:href="@{/addCategoryPage}">Add Category</a> </br>
+<a th:href="@{/viewCategoryPage}">View Category</a> </br>
+<a th:href="@{/addProductPage}">Add Product</a> </br>
+<a th:href="@{/viewProductDetailsAdmin}">View All Products </a> </br>
+<a th:href="@{/seeAllUsers}">See All Registered Users</a> </br>
+<a th:href="@{/}">Logout</a> </br>
+
+<div class="search-container">
+    <form  action="#" th:action="@{/findCustomer}"  method="get">
+      <input  th:text="${param.emailsubject != null} ? ${param.emailsubject} : ' '" placeholder="Search Customer.." name="emailsubject">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  
+  <a th:href="@{/viewAllOrders}">View All Orders </a> </br>
+</body>
+</html>
+

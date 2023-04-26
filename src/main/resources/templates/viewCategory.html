@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+<h2>All Categories</h2>
+
+<!-- <form action="#"  th:object="${category}" method="post"> -->
+<!-- 		<label>Category</label> -->
+<!-- 	<select  name="cid"> -->
+<!-- 		<option value="">--Select Category--</option> -->
+<!-- 		<option th:each="cc:${category}" th:value="${cc.cid}"> -->
+<!-- 		<span th:text="${cc.categoryname}"></span> -->
+<!-- 		</option> -->
+<!-- 	</select><br/> -->
+	
+<input type="submit" value="Refresh"/>
+</form>
+
+<table border="1">
+	<tr>
+		<th>CategoryId</th>
+		<th>Category Name</th>
+		<th>See All Items</th>
+	</tr>
+	<tr th:each="cc:${category}">
+		<td th:text="${cc.cid}"></td>
+		<td th:text="${cc.categoryname}"></td>
+		<td><a th:href="@{/searchProductsByCategory/{cid} (cid=${cc.cid}) }">See all items from this Category</a></td>
+	</tr>
+</table>
+<br/>
+<a th:href="@{/adminHome}">Go Back to Admin Page</a>
+</body>
+</html>
