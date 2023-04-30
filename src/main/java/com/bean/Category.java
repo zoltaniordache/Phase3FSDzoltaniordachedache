@@ -3,6 +3,7 @@ package com.bean;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,10 +18,13 @@ private String categoryname;
 @OneToMany
 @JoinColumn(name="categoryid")			//FK
 private List<Product> listOfProducts;
-public int getCid() {
+@OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+//@JoinColumn(name="productid")		//FK
+private List<Orders> listOfOrders;
+public Integer getCid() {
 	return cid;
 }
-public void setCid(int cid) {
+public void setCid(Integer cid) {
 	this.cid = cid;
 	
 }

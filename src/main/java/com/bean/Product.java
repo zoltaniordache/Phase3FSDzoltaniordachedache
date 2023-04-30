@@ -3,6 +3,7 @@ package com.bean;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +22,8 @@ private int qty;
 private Integer categoryid;			//FK
 @Lob
 private String productimage;
-@OneToMany
-@JoinColumn(name="productid")		//FK
+@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+//@JoinColumn(name="productid")		//FK
 private List<Orders> listOfOrders;
 public int getPid() {
 	return pid;
@@ -40,6 +41,7 @@ public void setPid(int pid) {
 public String getPname() {
 	return pname;
 }
+
 public void setPname(String pname) {
 	this.pname = pname;
 }

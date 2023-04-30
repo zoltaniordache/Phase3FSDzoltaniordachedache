@@ -16,6 +16,7 @@ private String typeofuser;
 @OneToMany
 @JoinColumn(name="emailid")	// FK 
 private List<Orders> listOfOrders;
+
 public String getEmailid() {
 	return emailid;
 }
@@ -40,6 +41,11 @@ public String getTypeofuser() {
 }
 public void setTypeofuser(String typeofuser) {
 	this.typeofuser = typeofuser;
+}
+
+public Login() {
+	super();
+	// TODO Auto-generated constructor stub
 }
 
 }
