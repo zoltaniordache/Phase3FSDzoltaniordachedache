@@ -58,7 +58,7 @@ public class LoginController {
 		ll.setTypeofuser("customer");
 		String result = loginService.signUp(ll);
 		mm.addAttribute("login", ll);
-		System.out.println(result);
+		
 
 		return "index";
 
@@ -66,8 +66,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	public String signIn(Model mm, @RequestParam("email") String email,@RequestParam("password") String password,HttpSession hs) {
-		System.out.println(email);
-		System.out.println(password);
+
 		String result = loginService.signIn(email,password);
 		
 		if(result.equals("Customer login successfully")) {
